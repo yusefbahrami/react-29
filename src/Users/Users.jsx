@@ -3,10 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import { Alert, Confirm } from "../Alerts/MessageComponents";
 import { Delete, Get } from "../Services/CRUDServices";
+import useTitle from "../Hooks/useTitle";
+
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [mainUsers, setMainUsers] = useState([]);
   const navigate = useNavigate();
+  useTitle("کاربران");
 
   const handleLoadData = async () => {
     try {

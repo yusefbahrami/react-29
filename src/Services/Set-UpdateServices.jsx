@@ -1,7 +1,7 @@
 import { Alert } from "../Alerts/MessageComponents";
 import { Post, Put } from "./CRUDServices";
 
-export const setUserService = async (route, data) => {
+export const setDataService = async (route, data) => {
   try {
     const result = await Post(route, data);
     if (result.status === 201 || result.status === 200) {
@@ -14,7 +14,7 @@ export const setUserService = async (route, data) => {
   }
 };
 
-export const updateUserService = async (route, data, userId) => {
+export const updateDataService = async (route, data, userId) => {
   try {
     const result = await Put(route, userId, data);
     if (result.status === 201 || result.status === 200) {

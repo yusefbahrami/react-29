@@ -9,6 +9,7 @@ import Post from "./Posts/Post";
 import Todo from "./Todos/Todo";
 import Users from "./Users/Users";
 import AddUser from "./Users/AddUser";
+import AddPost from "./Posts/AddPost";
 
 const Content = () => {
   const { showMenu, setShowMenu } = useContext(MainContext);
@@ -41,6 +42,9 @@ const Content = () => {
           <Route path=":userId" />
         </Route>
         <Route path="/post" element={<Post />} />
+        <Route path="/post/add" element={<AddPost />}>
+          <Route path=":postId" />
+        </Route>
         <Route path="/todo" element={<Todo />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="*" element={<Users />} />

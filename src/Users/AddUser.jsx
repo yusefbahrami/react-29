@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Alert } from "../Alerts/MessageComponents";
+import useTitle from "../Hooks/useTitle";
 import { Get } from "../Services/CRUDServices";
 import {
-  setUserService,
-  updateUserService,
+  setDataService,
+  updateDataService,
 } from "../Services/Set-UpdateServices";
 
 const AddUser = () => {
@@ -21,6 +22,7 @@ const AddUser = () => {
       zipcode: "",
     },
   });
+  useTitle(`${userId ? "ویرایش کاربر" : "افزودن کاربر"}`);
 
   const handleLoadData = async () => {
     try {
@@ -41,9 +43,9 @@ const AddUser = () => {
 
   const handleAddUser = () => {
     if (!userId) {
-      setUserService("users", data);
+      setDataService("users", data);
     } else {
-      updateUserService("users", data, userId);
+      updateDataService("users", data, userId);
     }
     handleBackPage();
   };
